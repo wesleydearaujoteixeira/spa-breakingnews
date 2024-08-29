@@ -5,6 +5,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
+            <h1> Breaking News </h1>
             <div className="card">
                 <Card/>
             </div>

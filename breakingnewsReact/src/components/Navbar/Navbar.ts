@@ -5,13 +5,14 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     position: fixed;
     top: 0;
     background-color: #fff;
     z-index: 1;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
-`;
+`
+;
 
 export const InputSpace = styled.div`
 
