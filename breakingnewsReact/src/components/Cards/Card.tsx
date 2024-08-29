@@ -3,6 +3,7 @@ import { MdOutlineTextsms } from "react-icons/md";
 import { CardBody, CardSection } from "./CardStyles.ts";
 import { useState, useEffect } from "react";
 import { GetAllPosts } from "../../services/servicesPost.ts";
+import { TextLimited } from "../TextLimited/TextLimited.tsx";
 
 interface Like {
     _id: string;
@@ -48,7 +49,7 @@ export default function Card() {
                     <CardBody>
                         <div>
                             <h2>{post.title}</h2>
-                            <p>{post.text}</p>
+                            <p> <TextLimited text={post.text} limit={50}/>  </p>
                         </div>
                         <img src={post.banner} alt="" />
                     </CardBody>
@@ -56,7 +57,7 @@ export default function Card() {
                         <FaRegThumbsUp />
                         <span> {post?.likes.length} </span>
                         <MdOutlineTextsms />
-                        <span> {post?.likes.length} </span>
+                        <span> {post?.comments.length} </span>
                     </article>
                 </CardSection>
             ))
