@@ -10,3 +10,15 @@ export async function GetAllPosts () {
 
 }
 
+export async function TopNews () {
+    const response = await axios.get(`${baseUrl}/news/top`);
+    return response.data;
+
+}
+
+export async function SearchNow(title: string) {
+    const response = await axios.get(`${baseUrl}/news/search?title=${title}`);
+    return response.data;
+}
+
+

@@ -1,8 +1,33 @@
 .card {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.7rem;
     margin: 0 auto;
     width: 80%;
     gap: 5rem;
 }
+
+
+@media screen and (max-width: 800px) {
+
+    .card {
+        grid-template-columns: 1fr;
+        grid-gap: 0.2rem;
+        width: 95%;
+        gap: 5rem;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 65%;
+        padding: 2rem;
+        padding: 1.7rem;
+        border-radius: 8px;
+        border: none;
+    }
+
+    
+}
+

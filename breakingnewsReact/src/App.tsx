@@ -1,13 +1,12 @@
-import { GlobalStyle } from './GlobalStyle'
-import Home from './pages/Home/Home'
-
+import { Outlet } from 'react-router-dom';
+import { Footer } from './components/Footer/FooterContainer';
 function App() {
   return (
     <>
-     <GlobalStyle/>
-      <Home/>
+      <Outlet />
+      <Footer/>        
     </>
-  )
+  );
 }
 
 export default App

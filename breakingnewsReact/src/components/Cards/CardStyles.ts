@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const CardSection = styled.section`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     background-color: white;
     box-shadow: 2px 2px 3px rgba(0,0, 0, 0.9);
@@ -16,6 +16,7 @@ export const CardSection = styled.section`
 export const CardBody = styled.article `
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
 
 
@@ -26,4 +27,12 @@ export const CardBody = styled.article `
         border-radius: 0.3rem;
     }
 
+
+    & div {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
 `
+
