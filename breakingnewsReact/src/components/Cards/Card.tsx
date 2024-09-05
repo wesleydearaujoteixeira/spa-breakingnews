@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { GetAllPosts} from "../../services/servicesPost.ts";
 import { TextLimited } from "../TextLimited/TextLimited.tsx";
 import '../../components/../pages/Home/card.css';
+import style from './card.module.css';
 
 interface Like {
     _id: string;
@@ -79,8 +80,8 @@ export default function Card() {
                 <div className="section" key={post.id}>
                 <CardSection >
                     <CardBody>
-                        <div>
-                            <h2>{post.title}</h2>
+                        <div className={style.cardContent} >
+                            <h3>{post.title}</h3>
                             <img src={post.banner} alt="" />
                         </div>
                         <p> <TextLimited text={post.text} limit={50}/>  </p>

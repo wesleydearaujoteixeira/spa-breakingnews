@@ -2,30 +2,31 @@ import { IoSearchOutline } from "react-icons/io5";
 import logo from '../../assets/LogoBN.png';
 import { Button, ImageLogo, InputSpace, Nav } from "./Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { SearchNow } from "../../services/servicesPost";
+import { useState } from "react";
+
 
 
 export default function Navbar() {
+
+
     const navigate = useNavigate();
     const [text, setText] = useState('');
 
-    useEffect(() => {
-        // Fetch search results whenever `text` changes
-            SearchNow(text)
-                .then((response) => {
-                    console.log(response.news[0]);
-                })
-                .catch((error) => {
-                    console.error('Error fetching search results:', error);
-                });
-        
-    }, []);
-
     const handleSearch = () => {
         // Navigate to search page with query
-        navigate(`/search?query=${encodeURIComponent(text)}`);
+
+        setTimeout(() => {
+            navigate(`/search?query=${text}`);
+        }, 1500);
+
+
     };
+
+
+    const AuthLogin = () => {
+        // Navigate to login page
+        navigate('/login');
+    }
 
     return (
         <>
@@ -37,12 +38,18 @@ export default function Navbar() {
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                     />
-                    <IoSearchOutline onClick={handleSearch} />
+                    <IoSearchOutline onClick={handleSearch} style={{
+                        transition: 'color 0.3s ease-in-out',
+                        color: text.length > 0? '#000' : '#ccc',
+                        cursor: 'pointer'
+                    }}/>
+
                 </InputSpace>
-                <ImageLogo src={logo} alt="logo" />
-                <Button>Entrar</Button>
+                <ImageLogo src={logo} alt="logo"/>
+                <Button onClick={() => AuthLogin()}> Entrar </Button>
             </Nav>
             <Outlet />
         </>
     );
 }
+

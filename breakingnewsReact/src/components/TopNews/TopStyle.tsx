@@ -10,11 +10,11 @@ export const ContainerTop = styled.div `
 
 
     & h1 {
-        font-size: 5rem;
+        font-size: 2.5rem;
     }
 
     & p {
-        font-size: 3rem;
+        font-size: 2rem;
         color: #0bade3;
         margin-left: 1rem;
     }

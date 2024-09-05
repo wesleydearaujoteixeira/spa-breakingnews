@@ -6,10 +6,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.tsx';
 import Home from './pages/Home/Home.tsx'; 
 import { SearchNews } from './pages/Search/SearchNews.tsx';
+import { UseContextProvider } from '../src/contextAPI/ContextAPI.tsx';
+import { Login } from './components/authenticate/Login.tsx';
+import { Register } from './components/authenticate/Register.tsx';
+
 
 const AppRouter = createBrowserRouter([{
 
     path: '/home',
+    errorElement: <div> Something went wrong </div>,
     element: <Navbar/>,
     children: [
         {
@@ -23,6 +28,17 @@ const AppRouter = createBrowserRouter([{
 {
   path: '/search',
   element:  <SearchNews/>,
+},
+
+{
+  path: '/login',
+  element: <Login/>,
+  errorElement: <div> Something went wrong </div>,
+},
+
+{
+  path: '/register',
+  element: <Register/>,
 }
 
 
@@ -31,8 +47,10 @@ const AppRouter = createBrowserRouter([{
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <GlobalStyle/>
-    <RouterProvider router={AppRouter}/>
-    <App />
+    <UseContextProvider>
+      <GlobalStyle/>
+      <RouterProvider router={AppRouter}/>
+      <App />
+    </UseContextProvider>
   </StrictMode>,
 )

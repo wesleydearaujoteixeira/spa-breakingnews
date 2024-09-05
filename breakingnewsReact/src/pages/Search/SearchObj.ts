@@ -1,10 +1,4 @@
-    type SearchProps = {
-        title: string,
-        banner: string,
-        text: string,
-    }
-    
-    export function SearchObj ({title, banner, text}: SearchProps) {
+    export function SearchObj (title: string, banner: string, text: string) {
         return {
             title,
             banner,
