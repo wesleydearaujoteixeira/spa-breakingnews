@@ -60,7 +60,8 @@ export default function Card() {
 
     const [news, setNews] = useState <Post[]> ([]);
 
-  
+   
+
 
     useEffect(() => {
         GetAllPosts().then((response) => {

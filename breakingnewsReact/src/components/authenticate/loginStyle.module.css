@@ -23,7 +23,7 @@
 
 input {
     width: 80%;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .error {
@@ -31,7 +31,7 @@ input {
 }
 
 label {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -66,7 +66,7 @@ button {
         
     .FormContent {
         width: 400px;
-        height: 350px;
+        height: 580px;
         background-color: lightgray;
         display: flex;
         flex-direction: column;
@@ -79,11 +79,11 @@ button {
 
     input {
         width: 80%;
-        font-size: 1.4rem;
+        font-size: 1rem;
     }
 
     label {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 500;
     }
 

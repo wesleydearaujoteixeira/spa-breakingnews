@@ -15,6 +15,15 @@ export async function TopNews () {
     return response.data;
 }
 
+export async function GetProfile (id: string) {
+    const response = await axios.get(`${baseUrl}/users/${id}`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+    });
+    return response.data;
+}
+
 
 
 

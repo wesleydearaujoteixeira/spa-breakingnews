@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import styles from './loginStyle.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoArrowBack } from "react-icons/io5";
 
 
@@ -17,6 +17,9 @@ const schema = z.object({
 type FormInputs = z.infer<typeof schema>;
 
 export function Login() {
+
+  const navigate = useNavigate();
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>({
     resolver: zodResolver(schema),
   });
@@ -25,8 +28,12 @@ export function Login() {
 
     try {
       const response = await axios.post('https://api-breakingnews-s97m.onrender.com/auth/login', data);
-      alert(response.data.message)
-      console.log('Resposta da API:', response.data.user);
+      alert(response.data.message);
+
+      localStorage.setItem('token', response.data.user.token);
+      localStorage.setItem('id', response.data.user.id);
+      navigate('/home');
+
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error('Erro ao enviar dados:', error.response?.data);

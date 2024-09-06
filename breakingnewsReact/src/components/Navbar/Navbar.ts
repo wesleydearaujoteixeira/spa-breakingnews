@@ -5,7 +5,7 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.5rem;
+    height: 10%;
     position: fixed;
     top: 0;
     background-color: #fff;
@@ -17,7 +17,8 @@ export const Nav = styled.nav`
 export const InputSpace = styled.div`
 
     position: relative;
-    width: 200px;
+    width: 250px;
+    margin-left: 5px;
     display: flex;
     align-items: center;
 
