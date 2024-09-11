@@ -21,7 +21,7 @@ export const CardBody = styled.article `
 
 
     img {
-        width: 15rem;
+        width: 13rem;
         height: auto;
         object-fit: cover;
         border-radius: 0.3rem;

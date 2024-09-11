@@ -25,6 +25,15 @@ export async function GetProfile (id: string) {
 }
 
 
+export async function GetUser () {
+    const response = await axios.get(`${baseUrl}/news/byUser`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+    });
+    return response.data;
+}
+
 
 
 

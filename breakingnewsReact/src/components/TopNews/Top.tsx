@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { TopNews } from "../../services/servicesPost"
-import { ContainerTop, LikesComments } from "./TopStyle"
-
+import styles from './topStyles.module.css';
+import { FaThumbsUp } from "react-icons/fa6";
+import { TfiComments } from "react-icons/tfi";
 
 type Likes = {
     userId: string,
@@ -44,23 +45,23 @@ export function Top () {
         }).catch(error => console.log(error));
     }, []); 
 
-
     return (
-        <ContainerTop>
-
-            {user && (
-                <div key={user.id}>
-                    <h1>{user.title}</h1>
-                    <p>{user.text}</p>
-                    <img src={user.banner} alt={user.title} />
-                    <LikesComments>
-                        <h3>Likes: {user.likes.length}</h3>
-                        <h3>Comentarios: {user.comments.length}</h3>
-                    </LikesComments>
-                    <hr />
-                </div>
-            )}
-        </ContainerTop>
+        <main className={styles.container}>
+            <section className={styles.main}>
+                {user && (
+                    <div key={user.id}>
+                        <h1 className={styles.title}>  {user.title} </h1>
+                        <p className={styles.p} >{user.text}</p>
+                        <img className={styles.imgTop} src={user.banner} alt={user.title} />
+                        <div className={styles.LikesComments}>
+                            <h3> <FaThumbsUp />: {user.likes.length} </h3>
+                            <h3> <TfiComments />: {user.comments.length} </h3>
+                        </div>
+                        <hr />
+                    </div>
+                )}
+            </section>
+        </main>
     )
 
 }

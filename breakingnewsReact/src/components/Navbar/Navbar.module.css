@@ -1,0 +1,7 @@
+
+@media screen and (max-width: 768px) {
+    .ocultar {
+        z-index: -3;
+        opacity: 0;
+    }    
+}

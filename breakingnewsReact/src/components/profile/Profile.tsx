@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { GetProfile } from "../../services/servicesPost";
-import { Button } from "../Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { useNavigate, Link } from "react-router-dom";
+import styles from './Profille.module.css';
 
 export const Profile = () => {
 
@@ -9,7 +10,6 @@ export const Profile = () => {
         name: string,
         avatar: string,
     }
-
 
     const navigate = useNavigate();
 
@@ -26,13 +26,10 @@ export const Profile = () => {
       if(!confirmation) {
        return;
     }
-
-
     localStorage.removeItem('token');
     localStorage.removeItem('id');
     navigate('/login');
     alert('Logged out');
-
         
     }
 
@@ -48,11 +45,12 @@ export const Profile = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '10px',
+            gap: '1rem',
         }}>
-            <h4> Olá {user.name} </h4>
-            <img style={{width: '66px', height: '55px',   borderRadius: '100%'}}   src={user.avatar} alt="User Avatar" />
-            <Button onClick={() => LogOut()}> Sair </Button>
+            <Link to='/user'> 
+                <img style={{width: '66px', height: '55px',  borderRadius: '100%'}}  src={user.avatar} alt="User Avatar" /> 
+            </Link>
+            <span className={styles.span}  onClick={() => LogOut()}> <RiLogoutBoxRLine /> </span>
         </div>
     )
 

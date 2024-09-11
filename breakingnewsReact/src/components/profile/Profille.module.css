@@ -1,0 +1,11 @@
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.span {
+    font-size: 2rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+

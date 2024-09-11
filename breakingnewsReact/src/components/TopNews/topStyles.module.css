@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.content_wrapper {
+    text-align: center;
+    margin: auto;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.imgTop {
+    width: 600px;
+}
+
+.LikesComments {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.p {
+    color: rgb(6, 132, 132);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    
+.imgTop {
+    width: 450px;
+}
+
+.p {
+    color: rgb(6, 132, 132);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.LikesComments {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+    width: 80%;
+}
+
+.title {
+    font-size: 2rem;
+}
+    
+}

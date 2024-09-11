@@ -4,6 +4,7 @@ import { Button, ImageLogo, InputSpace, Nav } from "./Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Profile } from "../profile/Profile";
+import styles from '../Navbar/Navbar.module.css';
 
 
 
@@ -57,10 +58,11 @@ export default function Navbar() {
                     }}/>
                     </Button>
 
-                   
-
                 </InputSpace>
-                <ImageLogo src={logo} alt="logo"/>
+                
+                <div className={styles.ocultar}>
+                    <ImageLogo src={logo} alt="logo"/>
+                </div>
 
                 {token && <Profile/> }
                 {!token &&  ( <Button onClick={() => AuthLogin()}> Entrar </Button> )}

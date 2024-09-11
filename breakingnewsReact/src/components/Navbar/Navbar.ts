@@ -42,7 +42,7 @@ export const InputSpace = styled.div`
 
 export const ImageLogo = styled.img `
     width: 8rem;
-    height: 3.5rem;
+    height: 4.5rem;
     object-fit: cover;
     cursor: pointer;
 `

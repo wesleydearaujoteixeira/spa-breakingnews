@@ -7,6 +7,7 @@ import { TextLimited } from "../TextLimited/TextLimited.tsx";
 import '../../components/../pages/Home/card.css';
 import style from './card.module.css';
 
+
 interface Like {
     _id: string;
     userId: string;
@@ -98,6 +99,7 @@ export default function Card() {
             ))
             
             }
+
         </>
     );
 }
