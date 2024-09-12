@@ -51,7 +51,6 @@ export function Top () {
                 {user && (
                     <div key={user.id}>
                         <h1 className={styles.title}>  {user.title} </h1>
-                        <p className={styles.p} >{user.text}</p>
                         <img className={styles.imgTop} src={user.banner} alt={user.title} />
                         <div className={styles.LikesComments}>
                             <h3> <FaThumbsUp />: {user.likes.length} </h3>

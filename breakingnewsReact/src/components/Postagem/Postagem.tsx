@@ -76,7 +76,7 @@ export function Postagem() {
         <textarea
         
           id="text"
-          cols={60}
+          cols={30}
           rows={30}
           {...register('text')}
         />

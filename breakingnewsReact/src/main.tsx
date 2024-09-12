@@ -11,7 +11,8 @@ import { Login } from './components/authenticate/Login.tsx';
 import { Register } from './components/authenticate/Register.tsx';
 import { User } from './components/User/User.tsx';
 import { Postagem } from './components/Postagem/Postagem.tsx';
-
+import { EditPost } from './components/Edit/EditPost.tsx';
+import { GetInformation } from './components/Get_Information/GetInformation.tsx';
 
 const AppRouter = createBrowserRouter([{
 
@@ -59,8 +60,17 @@ const AppRouter = createBrowserRouter([{
   path: '/post',
   element: <Postagem/>,
   errorElement: <div>Something went wrong</div>,
-}
+},
 
+{
+  path: '/edit/:id',
+  element: <EditPost/>
+},
+
+{
+  path: '/likesAndComments/:id',
+  element: <GetInformation/>,
+}
 
 
 

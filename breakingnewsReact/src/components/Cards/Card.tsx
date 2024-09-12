@@ -6,6 +6,7 @@ import { GetAllPosts} from "../../services/servicesPost.ts";
 import { TextLimited } from "../TextLimited/TextLimited.tsx";
 import '../../components/../pages/Home/card.css';
 import style from './card.module.css';
+import { useNavigate } from "react-router-dom";
 
 
 interface Like {
@@ -31,38 +32,15 @@ interface Post {
     comments: Comment[];
 }
 
-/* 
-
-{
-  "news": {
-    "id": "66d0f9a14f8ba74ab52374a0",
-    "title": "Only fans",
-    "text": "Key Alves promete Only em 2024",
-    "banner": "https://images.virgula.me/2023/09/anyconv-com__captura-de-tela-2023-04-11-082258-1.webp",
-    "likes": [
-      {
-        "userId": "66d0f587dddd302c86246256",
-        "created": "2024-08-29T22:44:19.459Z",
-        "_id": "66d0f9c34f8ba74ab52374b0"
-      }
-    ],
-    "comments": [],
-    "username": "romildo1010",
-    "avatar": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-  }
-}
-
-
-*/
-
 
 
 export default function Card() {
 
     const [news, setNews] = useState <Post[]> ([]);
 
-   
+    const navigate = useNavigate();
 
+    const token =  localStorage.getItem('token') || '';
 
     useEffect(() => {
         GetAllPosts().then((response) => {
@@ -74,6 +52,12 @@ export default function Card() {
 
     }, []);
 
+    const LikesAndComments = (postId: string) => {
+        console.log('Você não pode curtir este post');
+        navigate(`/likesAndComments/${postId}`);
+    }
+
+
     return (
         <>
         
@@ -81,6 +65,14 @@ export default function Card() {
             news.map((post) => (
                 <div className="section" key={post.id}>
                 <CardSection >
+                
+                
+                {!token && <span> n vai </span>}
+                        {token && <span
+                        className={style.likesComments} 
+                        onClick={() => LikesAndComments(post?.id)}> Ver postagem  </span>} 
+
+
                     <CardBody>
                         <div className={style.cardContent} >
                             <h3>{post.title}</h3>
@@ -90,10 +82,11 @@ export default function Card() {
                     </CardBody>
                     <article>
                         <FaRegThumbsUp />
-                        <span> {post?.likes.length} </span>
+                        <span> {post?.likes.length} </span>                       
                         <MdOutlineTextsms />
                         <span> {post?.comments.length} </span>
                     </article>
+
                 </CardSection>
                 </div>
             ))

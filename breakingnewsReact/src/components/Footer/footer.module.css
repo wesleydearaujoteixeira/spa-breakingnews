@@ -1,11 +1,20 @@
 
 
 .footer {
-    background-color: violet;
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin-top: 1rem;
+
 }
 
+.footer p {
+    color: white;
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}

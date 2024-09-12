@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.img {
+    width: 500px;
+    border-radius: 10px;
+}
+
+.contentSection {
+    padding: 20px;
+    border-radius: 10px;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.contentLikesAndComments {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+
+}
+
+.contentImgAndText {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.btnLiked {
+    cursor: pointer;
+}
+
+
+.contentInfo {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 3rem;
+    font-family: sans-serif;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(71, 154, 255);
+    color: white;
+    font-family: sans-serif;
+}
+
+.ajustContent {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+
+
+.imgPublic {
+    width: 60px;
+    height: 60px;
+    border-radius: 65%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.contentComment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sessionComments {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media  screen and (max-width: 768px) {
+    .contentSection {
+        padding: 20px;
+        border-radius: 10px;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+    }
+    
+    .contentLikesAndComments {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        width: 50%;
+    
+    }
+    
+    .contentImgAndText {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+    
+    }
+
+    .img {
+        width: 400px;
+        border-radius: 10px;
+    }
+    
+}

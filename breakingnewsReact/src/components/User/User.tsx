@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import { GetProfile, GetUser } from "../../services/servicesPost";
+import { DeletePost, GetProfile, GetUser } from "../../services/servicesPost";
 import styles from '../User/userProfile.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoArrowBack } from "react-icons/io5";
 import { FaThumbsUp } from "react-icons/fa6";
 import { TfiComments } from "react-icons/tfi";
@@ -56,6 +56,8 @@ export function User() {
       });
 
 
+      const navigate = useNavigate();
+
       const id = localStorage.getItem('id') || '';
       const [user, setUser] = useState <NewsItem[]> ([]);
 
@@ -78,10 +80,36 @@ export function User() {
         }).catch((error) => {
             console.error('Error fetching profile:', error);
         })
-    }, [])
+    }, []);
 
 
-    return(
+    const Delete = (id: string) => {
+
+      const confirmation = confirm('Tem certeza que deseja deletar esse post?');
+
+      if(!confirmation) return;
+
+      DeletePost(id).then((response) => {
+        console.log(response);
+        alert('Post deleted successfully')
+        window.location.reload();
+        }).catch((error) => { 
+            alert('Post n pode ser deletado');
+            console.error('Error deleting post:', error);
+        });
+    }
+
+    const editPost = (id: string) => {
+        alert('Edit Post');
+        navigate(`/edit/${id}`);
+    
+
+    }
+
+      
+  
+
+    return (
 
         <main className={styles.contentUser}>
             <div className={styles.headerUser}>
@@ -104,6 +132,15 @@ export function User() {
                         <h2>{news.title}</h2>
                         <img src={news.banner} className={styles.imgContent} alt={news.title} />
                         <p>Criado em: {new Date(news.createdAt).toLocaleString()}</p>
+                        <div>  
+                            <span
+                            className={styles.edit}
+                            onClick={() => editPost(news.id)} 
+                            > editar </span>
+                            <span   
+                            className={styles.delete}
+                            onClick={() => Delete(news.id)}> excluir </span>    
+                        </div>
                         <span className={styles.feedCommentsLikes}>
                             <p> <FaThumbsUp />: {news.likes.length}</p>
                             <p> <TfiComments />: {news.comments.length}</p>
@@ -112,7 +149,6 @@ export function User() {
                     </div>
                 ))}
             </div>
-
             {user.length == 0 &&  <h1> Não há postagens </h1>}
         </main>
          

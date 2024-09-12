@@ -37,3 +37,32 @@ export async function GetUser () {
 
 
 
+export async function DeletePost (id: string) {
+    const response = await axios.delete(`${baseUrl}/news/${id}`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+    });
+    return response.data;
+}
+
+
+export async function GetInfo (id: string | undefined) {
+    const response = await axios.get(`${baseUrl}/news/${id}`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+    });
+    return response.data;
+}
+
+export async function LikesApi (id: string | undefined, idUser: string) {
+    const response = await axios.patch(`${baseUrl}/news/likes/${id}/${idUser}`, {}, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+    });
+    return response.data;
+}
+
+
