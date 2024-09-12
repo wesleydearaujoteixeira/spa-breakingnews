@@ -6,6 +6,7 @@ import { IoArrowBack } from "react-icons/io5";
 import { FaThumbsUp } from "react-icons/fa6";
 import { TfiComments } from "react-icons/tfi";
 import { MdOutlineControlPoint } from "react-icons/md";
+import { FaArrowUpFromBracket } from "react-icons/fa6";
 
 
 
@@ -118,12 +119,22 @@ export function User() {
             </div>
 
             <div className={styles.contentHeaderProfile}>
-                <img className={styles.ProfileImg} src={userNews.avatar} alt={userNews.name} />
-                <h3 className={styles.title}>{userNews.name}</h3>
+                <div>
+                    <img className={styles.ProfileImg} src={userNews.avatar} alt={userNews.name} />
+                    <h3 className={styles.title}>{userNews.name}</h3>
+                </div>
+                
+                <div>
+                    <Link className={styles.LinkEdit}  to={`/EditUser/${userNews._id}`} > 
+                        <FaArrowUpFromBracket />
+                        <p>Editar perfil </p> 
+                     </Link>
+                </div>
+
             </div>
 
             <div className={styles.BtnPost}>
-                <Link to='/post'> <MdOutlineControlPoint /> </Link>
+                <Link  to='/post'> <MdOutlineControlPoint /> </Link>
             </div>
 
             <div className={styles.contentUserGrid}>

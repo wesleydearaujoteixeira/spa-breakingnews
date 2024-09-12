@@ -67,7 +67,7 @@ export default function Card() {
                 <CardSection >
                 
                 
-                {!token && <span> n vai </span>}
+                {!token && <span>  </span>}
                         {token && <span
                         className={style.likesComments} 
                         onClick={() => LikesAndComments(post?.id)}> Ver postagem  </span>} 

@@ -161,7 +161,7 @@ export const GetInformation = () => {
             <form onSubmit={handleSubmit(onSubmit)} className={styles.contentComment}>
                 <textarea
                     id="text"
-                    cols={90}
+                    cols={60}
                     rows={10}
                     {...register('text')}
                 />

@@ -13,6 +13,7 @@ import { User } from './components/User/User.tsx';
 import { Postagem } from './components/Postagem/Postagem.tsx';
 import { EditPost } from './components/Edit/EditPost.tsx';
 import { GetInformation } from './components/Get_Information/GetInformation.tsx';
+import { EditUser } from './components/EditUser/EditUser.tsx';
 
 const AppRouter = createBrowserRouter([{
 
@@ -70,6 +71,12 @@ const AppRouter = createBrowserRouter([{
 {
   path: '/likesAndComments/:id',
   element: <GetInformation/>,
+},
+
+{
+  path: '/EditUser/:id',
+  element: <EditUser/>,
+  errorElement: <div>Something went wrong</div>,
 }
 
 
