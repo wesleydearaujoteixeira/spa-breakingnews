@@ -40,7 +40,6 @@ export const GetInformation = () => {
 
           console.log(response.data.message);
           alert(response.data.message);
-          location.reload();
 
           return response.data;
     
@@ -182,7 +181,7 @@ export const GetInformation = () => {
             <form onSubmit={handleSubmit(onSubmit)} className={styles.contentComment}>
                 <textarea
                     id="text"
-                    cols={60}
+                    cols={40}
                     rows={10}
                     {...register('text')}
                 />
