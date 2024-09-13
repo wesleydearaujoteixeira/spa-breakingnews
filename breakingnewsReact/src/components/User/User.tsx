@@ -127,7 +127,7 @@ export function User() {
                 <div>
                     <Link className={styles.LinkEdit}  to={`/EditUser/${userNews._id}`} > 
                         <FaArrowUpFromBracket />
-                        <p>Editar perfil </p> 
+                        <p> Editar perfil </p> 
                      </Link>
                 </div>
 

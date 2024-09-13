@@ -119,6 +119,24 @@ export const GetInformation = () => {
             console.log(err);
         })
     }
+
+    const DeleteComment = (idNews: string | undefined, idComment: string) => {
+
+        axios.patch(`https://api-breakingnews-s97m.onrender.com/news/comments/${idNews}/${idComment}/${idUser}`, {}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }).then((response) => {
+            console.log(response.data.message);
+            alert(response.data.message);
+            location.reload();
+            
+        }).catch((err) => {
+            console.error('Error deleting comment:', err);
+        });
+
+    }
+
     return (
         <main> 
             <div className={styles.contentInfo} > 
@@ -150,9 +168,14 @@ export const GetInformation = () => {
             <hr />
                 {comments?.map((comment) => {
                     return (
-                        <div key={comment._id}>
-                            <h6>{comment.text}</h6>
-                            <span> {new Date(comment.created).toLocaleString()} </span>
+                        <div key={comment._id} className={styles.sessionDeleteComment} >
+                            
+                            <div>
+                                <h6>{comment.text}</h6>
+                                <span> {new Date(comment.created).toLocaleString()} </span>
+                            </div>
+
+                            <span onClick={() => DeleteComment(id, comment._id)} className={styles.commentDelete}> excluir </span>
                         </div>
                     )
                 })}

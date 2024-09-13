@@ -90,7 +90,24 @@
     gap: 1rem;
     overflow-y: scroll;
     max-height: 200px;
+    margin-top: 2rem;
 }
+
+.sessionDeleteComment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.commentDelete {
+    color: white;
+    background-color: red;
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
 
 @media  screen and (max-width: 768px) {
     .contentSection {
