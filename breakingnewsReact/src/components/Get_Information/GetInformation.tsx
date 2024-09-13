@@ -112,7 +112,6 @@ export const GetInformation = () => {
     const LikedOnPost = () => {
         LikesApi(id, idUser).then((response) => {
             console.log(response.message);
-            location.reload();
             
         }).catch((err) => {
             alert(err)
@@ -129,7 +128,6 @@ export const GetInformation = () => {
         }).then((response) => {
             console.log(response.data.message);
             alert(response.data.message);
-            location.reload();
             
         }).catch((err) => {
             console.error('Error deleting comment:', err);

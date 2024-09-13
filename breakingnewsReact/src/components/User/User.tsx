@@ -92,8 +92,7 @@ export function User() {
 
       DeletePost(id).then((response) => {
         console.log(response);
-        alert('Post deleted successfully')
-        window.location.reload();
+        
         }).catch((error) => { 
             alert('Post n pode ser deletado');
             console.error('Error deleting post:', error);
