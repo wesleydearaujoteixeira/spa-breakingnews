@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { GetInfo, LikesApi } from "../../services/servicesPost";
 import styles from './GetInformation.module.css';
 import { FaRegThumbsUp } from "react-icons/fa6";
@@ -24,6 +24,8 @@ type FormInputs = z.infer<typeof schema>;
 export const GetInformation = () => {
 
 
+    const navigate = useNavigate();
+
     const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>({
         resolver: zodResolver(schema),
       });
@@ -40,6 +42,7 @@ export const GetInformation = () => {
 
           console.log(response.data.message);
           alert(response.data.message);
+          navigate('/home');
 
           return response.data;
     
@@ -111,6 +114,8 @@ export const GetInformation = () => {
     const LikedOnPost = () => {
         LikesApi(id, idUser).then((response) => {
             console.log(response.message);
+            navigate('/home');
+
             
         }).catch((err) => {
             alert(err)
@@ -127,6 +132,8 @@ export const GetInformation = () => {
         }).then((response) => {
             console.log(response.data.message);
             alert(response.data.message);
+            navigate('/home');
+
             
         }).catch((err) => {
             console.error('Error deleting comment:', err);
